@@ -23,9 +23,8 @@ Libwget is just a 'all what is needed for wget2' library. But see the 'examples'
 some stand-alone tools (e.g. printing URLs from a HTML or CSS file, downloading SHOUTCAST streams while 
 printing embedded title strings).
 
-- take test suite from mget project (in work)
 - fix the license text in each file
-- maybe split tim/wget2 into libwget and wget2 as separate projects ? [1]
+- maybe libwget+wget2 as a separate project from wget1.x ? [1]
 - docs - use gtk-docs or what ?
 - document the libwget API
 - add an FTP/S API into libwget
