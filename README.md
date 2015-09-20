@@ -4,6 +4,9 @@ What to do next, ideas, facts, fun
 wget2
 =====
 
+The code is now stored in branch 'wget2', with libwget and wget2 together.
+HTTP/2 support has just been added.
+
 The code has been taken from [Mget](https://github.com/rockdaboot/mget).<br>
 It has been written from scratch, so I can move that code to another licence at will.<br>
 The code is C99 + POSIX to keep it modern and clean (no gnulib dependency).<br>
@@ -23,15 +26,18 @@ Libwget is just a 'all what is needed for wget2' library. But see the 'examples'
 some stand-alone tools (e.g. printing URLs from a HTML or CSS file, downloading SHOUTCAST streams while 
 printing embedded title strings).
 
-- fix the license text in each file
-- maybe libwget+wget2 as a separate project from wget1.x ? [1]
+- fix the license text in each file [pri 1]
+- create a MarkDown document to explain wget2 [pri 2], something we can publish on the mailing list
+and/or social networks to attract more people (testers, developers, maintainers).
+
 - docs - use gtk-docs or what ?
 - document the libwget API
+- set up a second tool (wget2-ftp) to handle ftp only ? (One tool for one task). Communication between
+wget2 and wget2-ftp needed for recursive downloads with included ftp URIs !?
 - add an FTP/S API into libwget
 - add FTP/S support into wget2
 - **** at this point: introduce wget on mailing list
 - write test cases for FTP/S
-- add HTTP/2 support
 - write test cases for HTTP/2
 - add WARC API into libwget
 - add WARC support into wget2
@@ -47,6 +53,8 @@ printing embedded title strings).
       We can arrange the code into internal functions and call them from the
       public-facing API functions, adapting these as we want.
     - We take code out of current wget's hacky codebase and put it into easy-to-use, reusable public libraries.
+- create a 'wget2-debian' git repo for Debian packaging, so we can get it easier into Debian
+
 
 [1] I guess this depends on how we're planning to release wget2. Because AFAIK wget2 will eventually
     be merged on top of current wget, right? So, will libwget be on the same codebase as wget
@@ -57,8 +65,6 @@ printing embedded title strings).
 
 [Answer] wget1.x and wget2 will maybe never merge (or the earliest in a few years). They can both exist in parallel.
          Once wget2 is stable, we could rename it to wget and rename wget to wget1.x.<br>
-         For the early development phase (now), I'll leave the branch tim/wget2 as it is, eventually taking out
-         wget1.x and gnulib later. But libwget/wget2 will stick together.
 
 GnuTLS
 ======
