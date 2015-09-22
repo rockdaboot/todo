@@ -29,6 +29,7 @@ printing embedded title strings).
 - create a MarkDown document to explain wget2 [pri 1], something we can publish on the mailing list
 and/or social networks to attract more people (testers, developers, maintainers).
 
+- support HTTP pipelining, at least for HTTP/2 to get full speed when recursively downloading
 - docs - use gtk-docs or what ?
 - document the libwget API
 - set up a second tool (wget2-ftp) to handle ftp only ? (One tool for one task). Communication between
