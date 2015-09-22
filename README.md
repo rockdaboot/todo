@@ -26,8 +26,7 @@ Libwget is just a 'all what is needed for wget2' library. But see the 'examples'
 some stand-alone tools (e.g. printing URLs from a HTML or CSS file, downloading SHOUTCAST streams while 
 printing embedded title strings).
 
-- fix the license text in each file [pri 1]
-- create a MarkDown document to explain wget2 [pri 2], something we can publish on the mailing list
+- create a MarkDown document to explain wget2 [pri 1], something we can publish on the mailing list
 and/or social networks to attract more people (testers, developers, maintainers).
 
 - docs - use gtk-docs or what ?
