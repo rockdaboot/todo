@@ -71,6 +71,17 @@ GnuTLS
 
 - OpenSSL avoids certificate preloading by using hashes (utility c_rehash, have a look at /etc/ssl/certs).
   That allows a very fast startup. I would like to see something similar for GnuTLS. 
+  Example for https://www.google.de
+```
+$ openssl x509 -subject_hash -fingerprint -noout -in /etc/ssl/certs/Equifax_Secure_CA.pem
+578d5c04
+SHA1 Fingerprint=D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A
+$ ls -la /etc/ssl/certs/578d5c04*
+lrwxrwxrwx 1 root root 21 Mai 29 21:12 /etc/ssl/certs/578d5c04.0 -> Equifax_Secure_CA.pem
+```
+  GnuTLS' certtool has no option to generate subject hashes.
+  Use 'certtool -i --infile /etc/ssl/certs/Equifax_Secure_CA.pem' to print cert infos
+
 - add OCSP multi-stapling by simply merging the OCSP answers into one ASN.1 file.
   gnutls-cli has to extended for that, the low-level stuff should be done in 3.4 branch.
 - add OCSP multi-stapling to gnutls-serv, so we can test gnutls-cli with gnutls-serv.
