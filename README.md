@@ -69,6 +69,8 @@ wget2 and wget2-ftp needed for recursive downloads with included ftp URIs !?
 GnuTLS
 ======
 
+- OpenSSL avoids certificate preloading by using hashes (utility c_rehash, have a look at /etc/ssl/certs).
+  That allows a very fast startup. I would like to see something similar for GnuTLS. 
 - add OCSP multi-stapling by simply merging the OCSP answers into one ASN.1 file.
   gnutls-cli has to extended for that, the low-level stuff should be done in 3.4 branch.
 - add OCSP multi-stapling to gnutls-serv, so we can test gnutls-cli with gnutls-serv.
@@ -86,3 +88,9 @@ VTLS (low priority)
 ===================
 
 - let's call it libmtls (m for 'meta') - one TLS API wrapper for many TLS libraries
+
+curl
+====
+
+- When linked with GnuTLS, curl loads each certificate 4 times ! at startup (e.g .on Debian).
+  We had the same issue a while ago with Wget - and I fixed it. curl needs a similar fix.
